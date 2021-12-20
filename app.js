@@ -73,6 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function clickedGrid () {
         let cardId = this.getAttribute('data-id');
+        if(selectedCards.length==1 && selectedCards[0] == cardId) {
+            return;
+        }
         // console.log(cardId);
         this.setAttribute('src', cards[cardId].img);
         // this.removeEventListener('click', clickedGrid);
