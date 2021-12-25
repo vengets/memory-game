@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
         name: 'blank',
         img: 'https://cdn.pixabay.com/photo/2013/07/13/13/14/swirl-160625_1280.png'
     };
-    const cards = [
+    let cards = [
         {
             name: 'book',
             img: 'https://live.staticflickr.com/65535/50726701386_565f6bc719_b.jpg'
@@ -60,8 +60,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.grid');
 
     function createGrid() {
+        cards = shuffle(cards);
         for(let i=0; i<cards.length; i++) {
             let tile = document.createElement('img');
+            tile.setAttribute('class', 'tile');
             tile.setAttribute('src', blank.img);
             tile.setAttribute('data-id', i);
             tile.setAttribute('width', 100);
@@ -69,6 +71,15 @@ document.addEventListener('DOMContentLoaded', () => {
             tile.addEventListener('click', clickedGrid);
             grid.appendChild(tile);
         }
+    }
+
+    function shuffle(array, len = array.length) {
+        for (let i = array.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+
+        return array.slice(0, len);
     }
 
     function clickedGrid () {
