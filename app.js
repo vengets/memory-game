@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     let cards = [
         {
-            name: 'book',
+            name: 'taco',
             img: 'https://live.staticflickr.com/65535/50726701386_565f6bc719_b.jpg'
         },
         {
@@ -28,30 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
             name: 'mouth',
             img: 'https://cdn-icons-png.flaticon.com/512/1471/1471735.png'
         },
-        {
-            name: 'book',
-            img: 'https://live.staticflickr.com/65535/50726701386_565f6bc719_b.jpg'
-        },
-        {
-            name: 'experiment',
-            img: 'https://cdn-icons-png.flaticon.com/512/1055/1055074.png'
-        },
-        {
-            name: 'book',
-            img: 'https://cdn-icons-png.flaticon.com/512/1935/1935021.png'
-        },
-        {
-            name: 'smile',
-            img: 'https://upload.wikimedia.org/wikipedia/commons/f/f3/Packaged_food_clip_art.png'
-        },
-        {
-            name: 'lock',
-            img: 'https://png.pngtree.com/png-vector/20210225/ourmid/pngtree-delicious-and-tempting-thai-tom-yum-goong-png-image_2956067.jpg'
-        },
-        {
-            name: 'mouth',
-            img: 'https://cdn-icons-png.flaticon.com/512/1471/1471735.png'
-        }
     ];
 
     let selectedCards = [];
@@ -60,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.grid');
 
     function createGrid() {
+        cards = cards.concat(cards);
         cards = shuffle(cards);
         for(let i=0; i<cards.length; i++) {
             let tile = document.createElement('img');
